@@ -1,7 +1,8 @@
 @echo off
 set CWD=%~dp0
-::::mklink /d %USERPROFILE%\.vim    %CWD%.vim\
-mklink /j %USERPROFILE%\.vim\   %CWD%.vim\
-mklink /h %USERPROFILE%\.vimrc  %CWD%.vimrc
-mklink /h %USERPROFILE%\.gvimrc %CWD%.gvimrc
+mkdir %USERPROFILE%\.cache\vim
+del /F /Q %USERPROFILE%\.vimrc
+del /F /Q %USERPROFILE%\.gvimrc
+mklink /h %USERPROFILE%\.vimrc  %CWD%vimrc
+mklink /h %USERPROFILE%\.gvimrc %CWD%gvimrc
 pause
