@@ -58,8 +58,11 @@ endif
 "autocmd BufWritePre * :%s/\s\+$//e
 
 
-" syntax color customizations
-":colorscheme greg
+" syntax color customizations - I like Mac's default
+" color scheme better, so only apply this to Linux.
+if has("unix")
+  :colorscheme greg
+endif
 
 " java customizations
 autocmd FileType java :hi Constant guifg=darkgray gui=none
