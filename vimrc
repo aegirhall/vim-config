@@ -14,8 +14,8 @@ if has("win32") || has("win64")
   behave mswin
 endif
 
-" add windows behavior to unix/linux (shouldn't effect Mac OS X)
-if has("unix")
+" add windows behavior to unix/linux, but not Mac OS X)
+if has("unix") && ! has("osx")
   source $VIMRUNTIME/vimrc_example.vim
   source $VIMRUNTIME/mswin.vim
   behave mswin
@@ -38,6 +38,10 @@ set nobackup
 set nowritebackup
 set swapfile
 "set noswapfile
+
+" ignorecase is required for smartcase
+set ignorecase
+set smartcase
 
 " Note the trailing double-backslash in the directories below, these allow
 " vim to store the directory structure in addition to filenames.
