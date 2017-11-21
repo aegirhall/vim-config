@@ -38,6 +38,7 @@ set nobackup
 set nowritebackup
 set swapfile
 "set noswapfile
+set hlsearch  " hightlight search
 
 " ignorecase is required for smartcase
 set ignorecase
@@ -61,15 +62,11 @@ endif
 " remove trailing whitespace during write
 "autocmd BufWritePre * :%s/\s\+$//e
 
-
-" syntax color customizations - I like Mac's default
-" color scheme better, so only apply this to Linux.
-if has("unix")
-  :colorscheme greg
-endif
+" syntax color customizations
+:colorscheme greg
 
 " java customizations
-autocmd FileType java :hi Constant guifg=darkgray gui=none
+"autocmd FileType java :hi Constant guifg=darkgray gui=none
 
 " javascript customizations
 autocmd FileType javascript setlocal shiftwidth=4 tabstop=4
@@ -81,14 +78,14 @@ autocmd FileType perl setlocal shiftwidth=4 tabstop=4
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
 
 " xml customizations
-autocmd FileType xml :hi Type guifg=darkred gui=none
+autocmd FileType xml :hi Type ctermfg=darkred guifg=darkred gui=none
 
 " ant customizations
-autocmd FileType ant :hi Type guifg=darkred gui=none
+autocmd FileType ant :hi Type ctermfg=darkred guifg=darkred gui=none
 
 " highlight whitespace erorrs
 fun MatchTrailingWhitespaces()
-	match Error /\s\+$/
+  match Error /\s\+$/
 endfun
 autocmd Syntax * call MatchTrailingWhitespaces()
 
