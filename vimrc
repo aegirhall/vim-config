@@ -44,6 +44,9 @@ set hlsearch  " hightlight search
 set ignorecase
 set smartcase
 
+set laststatus=2
+set ruler
+
 " Note the trailing double-backslash in the directories below, these allow
 " vim to store the directory structure in addition to filenames.
 set directory=~/.cache/vim//
@@ -63,7 +66,8 @@ endif
 "autocmd BufWritePre * :%s/\s\+$//e
 
 " syntax color customizations
-:colorscheme greg
+":colorscheme greg
+:colorscheme vscode
 
 " java customizations
 "autocmd FileType java :hi Constant guifg=darkgray gui=none
@@ -78,10 +82,10 @@ autocmd FileType perl setlocal shiftwidth=4 tabstop=4
 autocmd FileType python setlocal shiftwidth=4 tabstop=4
 
 " xml customizations
-autocmd FileType xml :hi Type ctermfg=darkred guifg=darkred gui=none
+"autocmd FileType xml :hi Type ctermfg=darkred guifg=darkred gui=none
 
 " ant customizations
-autocmd FileType ant :hi Type ctermfg=darkred guifg=darkred gui=none
+"autocmd FileType ant :hi Type ctermfg=darkred guifg=darkred gui=none
 
 " highlight whitespace erorrs
 fun MatchTrailingWhitespaces()
@@ -90,4 +94,16 @@ endfun
 autocmd Syntax * call MatchTrailingWhitespaces()
 
 " enable pathogen
-"call pathogen#infect()
+execute pathogen#infect()
+
+" map jj to esc
+inoremap jj <esc>
+
+" shortcut for nerdtree
+command NT NERDTreeToggle
+
+if has('gui_running')
+    set background=light
+else
+    set background=dark
+endif
